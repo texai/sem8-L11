@@ -34,3 +34,17 @@ GET {{server}}/profile/cursos
 ###
 GET {{server}}/cursos/search/findByNombre?nombre=Inteligencia+Artificial+1
 
+############ Carrera
+GET {{server}}/carreras
+###
+POST {{server}}/carreras
+Content-Type: application/json
+
+{"nombre": "Marketing"}
+###
+GET {{server}}/cursos/2/carrera
+###
+GET {{server}}/carreras/1
+###
+GET {{server}}/carreras/1/cursos
+###

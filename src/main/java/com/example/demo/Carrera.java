@@ -5,13 +5,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
+
+import java.util.Set;
+import java.util.HashSet;
 
 @Entity
-@Table(name = "curso")
-public class Curso {
+@Table(name = "carrera")
+public class Carrera {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -19,11 +21,9 @@ public class Curso {
 
     private String nombre;
 
-    private Integer creditos;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_carrera")
-    private Carrera carrera;
+    @OneToMany(targetEntity = Curso.class, mappedBy = "carrera")
+    @OrderBy("nombre ASC")
+    private Set<Curso> cursos = new HashSet<Curso>();
 
     public Integer getId() {
         return id;
@@ -41,23 +41,13 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public Integer getCreditos() {
-        return creditos;
+    public Set<Curso> getCursos() {
+        return cursos;
     }
 
-    public void setCreditos(Integer creditos) {
-        this.creditos = creditos;
+    public void setCursos(Set<Curso> cursos) {
+        this.cursos = cursos;
     }
-
-    public Carrera getCarrera() {
-        return carrera;
-    }
-
-    public void setCarrera(Carrera carrera) {
-        this.carrera = carrera;
-    }
-
-        
     
     
 }

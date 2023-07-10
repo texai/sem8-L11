@@ -1,4 +1,5 @@
-@server = https://texai-sturdy-adventure-xv9jj494hq47-8080.preview.app.github.dev
+#@server = https://texai-sturdy-adventure-xv9jj494hq47-8080.preview.app.github.dev
+@server = https://sem8.onrender.com
 @apiserver = {{server}}/api/curso
 ###
 GET {{server}}/
@@ -12,9 +13,9 @@ GET {{apiserver}}/listar
 POST {{apiserver}}/nuevo
 Content-Type: application/x-www-form-urlencoded
 
-nombre=Algoritmos&creditos=3
+nombre=Inteligencia+Artificial 1&creditos=3
 ###
 DELETE {{apiserver}}/eliminar
 Content-Type: application/x-www-form-urlencoded
 
-id=1
+id=52

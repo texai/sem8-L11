@@ -1,0 +1,17 @@
+@server = https://texai-improved-space-succotash-pgprxq9g9c7x59-8080.preview.app.github.dev/api
+###
+GET {{server}}/carreras
+###
+POST {{server}}/carreras
+Content-Type: application/json
+
+{"nombre": "DSI"}
+###
+GET {{server}}/cursos
+###
+POST {{server}}/cursos
+Content-Type: application/json
+
+{"nombre": "Curso B", "creditos": "2", "carrera": "http://localhost/api/carreras/1"}
+###
+GET {{server}}/cursos/2/carrera
